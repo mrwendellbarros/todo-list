@@ -5,7 +5,6 @@ import java.io.IOException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,10 +20,10 @@ public class FilterTaskAuth extends OncePerRequestFilter {
                 var authorization = request.getHeader("Authorization");
                 System.out.println("Authorization");
                 System.out.println(authorization);
+
+                authorization.substring("Basic".length()).trim();
         
                 filterChain.doFilter(request, response);
     }
-
-    
     
 }
